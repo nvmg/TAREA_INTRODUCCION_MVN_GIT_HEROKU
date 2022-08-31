@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Mercado de valores</title>
+        <title>Mercado de Valores</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -18,16 +18,18 @@
                 <input type="radio" name="symbol" value="Weekly"/> Weekly <br/>
                 <input type="button" value="Submit" onclick="Informacion(name)">
         </form>
+        <pre id="all"></pre>
     </body>
 
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     
     <script>
+        var API = "";
         function Informacion(symbol){
-            var URL = "https://mercadovalores.herokuapp.com/" + document.getElementById("function").value+"/"+wymbol;
+            var URL = "https://mercadovalores.herokuapp.com/" + API + "/" + document.getElementById("function").value+"/"+symbol;
             axios.get(URL)
                     .then(function(res){
-                
+                        PrintInfo(res.data)
                     })
                     .catch (function(error){
                         console.log(error)})
@@ -35,7 +37,20 @@
         }
         
         function PrintInfo(info){
-            div = document.getElementById()
+            div = document.getElementById("all");
+            div.innerHTML = JSON.stringify(info, null,2);
+        }
+        
+        function setAPI(data){
+            this.API = data;
+            load();
+        }
+        
+        function load(){
+            var URL = "https://mercadovalores.herokuapp.com/" + API + "/" + document.getElementById("function").value;
+            axios.get(URL)
+                    .catch (function(error){
+                        console.log(error)})
         }
     </script>
     
