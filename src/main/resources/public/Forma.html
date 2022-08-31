@@ -24,7 +24,7 @@
     
     <script>
         function Informacion(symbol){
-            var URL = "/"+document.getElementById("function").value+"/"+wymbol;
+            var URL = "https://mercadovalores.herokuapp.com/" + document.getElementById("function").value+"/"+wymbol;
             axios.get(URL)
                     .then(function(res){
                 
