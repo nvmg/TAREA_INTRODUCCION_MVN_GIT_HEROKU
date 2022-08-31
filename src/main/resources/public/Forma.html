@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Mercado de valores</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+
+    <body>
+        <h1>Digite el identificador de una acción</h1>
+        <form action="/Nombre">
+            <label for="name">Identificador:</label><br>
+            <input type="text" id="function" name="name" placeholder="Ejemplo: MSFT"><br><br>
+            <p>Time Series Stock Data APIs<br/>
+                <input type="radio" name="symbol" value="Intraday"/> Intraday <br/>
+                <input type="radio" name="symbol" value="Daily"/> Daily <br/>
+                <input type="radio" name="symbol" value="Monthly"/> Monthly <br/>
+                <input type="radio" name="symbol" value="Weekly"/> Weekly <br/>
+                <input type="button" value="Submit" onclick="Informacion(name)">
+        </form>
+    </body>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script>
+        function Informacion(symbol){
+            var URL = "/"+document.getElementById("function").value+"/"+wymbol;
+            axios.get(URL)
+                    .then(function(res){
+                
+                    })
+                    .catch (function(error){
+                        console.log(error)})
+
+        }
+        
+        function PrintInfo(info){
+            div = document.getElementById()
+        }
+    </script>
+    
+</html>
